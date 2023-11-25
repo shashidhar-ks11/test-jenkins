@@ -36,9 +36,9 @@ pipeline {
 				echo "PATH - $PATH"
 				echo "BUILd_NUMBER - $env.BUILd_NUMBER"
 				echo "BUILd_ID - $env.BUILD_ID"
-				echo "JOB_NAME - $evn.JOB_NAME"
-				echo "BUILD_TAG - $evn.BUILD_TAG"
-				echo "BUILD_URL - $evn.BUILD_URL"
+				//echo "JOB_NAME - $evn.JOB_NAME"
+				//echo "BUILD_TAG - $evn.BUILD_TAG"
+				//echo "BUILD_URL - $evn.BUILD_URL"
 
 			}
 		}
