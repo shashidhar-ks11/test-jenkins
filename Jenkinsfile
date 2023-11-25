@@ -29,7 +29,7 @@ pipeline {
 	}
 
 	stages {
-		stage('build'){
+		stage('Checkout'){
 			steps {
 				echo "step build"
 				sh 'mvn --version'
@@ -42,15 +42,23 @@ pipeline {
 
 			}
 		}
+
+		stage('Compile'){
+			steps{
+				echo "mvn clean compile"
+				sh 'mvn clean compile'
+			}
+		}
 			
 		stage('Test'){
 			steps {
 				echo "test step"
+				sh 'mvn test'
 			}
 		}
-		stage('Integration test'){
+		stage('Integration Test') {
 			steps {
-				echo "step integration test"
+				sh "mvn failsafe:integration-test failsafe:verify"
 			}
 		}
 	}
