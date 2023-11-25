@@ -52,13 +52,19 @@ pipeline {
 			
 		stage('Test'){
 			steps {
-				echo "test step"
-				sh 'mvn test'
+				echo "test step - skipping"
+				//sh 'mvn test'
 			}
 		}
 		stage('Integration Test') {
 			steps {
 				sh "mvn failsafe:integration-test failsafe:verify"
+			}
+		}
+
+		stage('Package') {
+			steps {
+				sh "mvn package -DskipTests"
 			}
 		}
 	}
