@@ -16,24 +16,22 @@ pipeline {
 
 	agent any
 	stages {
-			stage('build'){
-				step {
-						echo "step build"
-					}
-				}
+		stage('build'){
+			step {
+				echo "step build"
+			}
+		}
 			
-			stage('Test'){
-				step {
-						echo "test step"
-					}
-				}
+		stage('Test'){
+			step {
+				echo "test step"
 			}
-			stage('Integration test'){
-				step {
-						echo "step integration test"
-					}
-				}
+		}
+		stage('Integration test'){
+			step {
+				echo "step integration test"
 			}
+		}
 	}
 
 	post {
