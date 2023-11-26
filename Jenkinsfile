@@ -37,7 +37,7 @@ pipeline {
 				echo "BUILd_NUMBER - $env.BUILd_NUMBER"
 				echo "BUILd_ID - $env.BUILD_ID"
 				//echo "JOB_NAME - $evn.JOB_NAME"
-				//echo "BUILD_TAG - $evn.BUILD_TAG"
+				echo "BUILD_TAG - $evn.BUILD_TAG"
 				//echo "BUILD_URL - $evn.BUILD_URL"
 
 			}
@@ -66,6 +66,15 @@ pipeline {
 			steps {
 				sh "mvn package -DskipTests"
 			}
+		}
+
+		stage('build docker') {
+			steps{
+				script {
+					docker_image = docker.build("currency-exchange-devops:${env.BUILD_TAG}")
+				}
+			}
+
 		}
 	}
 
